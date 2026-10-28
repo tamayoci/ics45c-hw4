@@ -3,6 +3,13 @@
 
 using namespace std;
 
+char *String::strdup(const char *src) {
+    int len = strlen(src);
+    char *copy = new char[len + 1];
+    strcpy(copy, src);
+    return copy;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
