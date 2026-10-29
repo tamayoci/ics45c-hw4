@@ -88,3 +88,11 @@ int String::strncmp(const char *left, const char *right, int n) {
     }
     return left[i] - right[i];
 }
+
+void String::reverse_cpy(char *dest, const char *src) {
+    int len = strlen(src);
+    for (int i = 0; i < len; ++i) {
+        dest[i] = src[len - 1 - i];
+    }
+    dest[len] = '\0';
+}
