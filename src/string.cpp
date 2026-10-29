@@ -50,6 +50,12 @@ int String::size() const {
     return strlen(buf);
 }
 
+String String::reverse() const {
+    String result(size());
+    reverse_cpy(result.buf, buf);
+    return result;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
