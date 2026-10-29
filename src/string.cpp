@@ -15,6 +15,11 @@ String::String(const char *s) {
     buf = strdup(s);
 }
 
+String::String(const String &s) {
+    buf = strdup(s.buf);
+}
+
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
