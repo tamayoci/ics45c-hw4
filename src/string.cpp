@@ -76,6 +76,30 @@ int String::indexOf(const String &s) const {
     return ptr - buf;
 }
 
+bool String::operator==(const String &s) const {
+    return strcmp(buf, s.buf) == 0;
+}
+
+bool String::operator!=(const String &s) const {
+    return strcmp(buf, s.buf) != 0;
+}
+
+bool String::operator<(const String &s) const {
+    return strcmp(buf, s.buf) < 0;
+}
+
+bool String::operator>(const String &s) const {
+    return strcmp(buf, s.buf) > 0;
+}
+
+bool String::operator<=(const String &s) const {
+    return strcmp(buf, s.buf) <= 0;
+}
+
+bool String::operator>=(const String &s) const {
+    return strcmp(buf, s.buf) >= 0;
+}
+
 void String::print(std::ostream &out) const {
     out << buf;
 }
