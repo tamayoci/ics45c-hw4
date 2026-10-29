@@ -38,6 +38,14 @@ String &String::operator=(String s) {
     return *this;
 }
 
+char &String::operator[](int index) {
+    if (!in_bounds(index)) {
+        cout << "ERROR: Index Out Of Bounds" << endl;
+        return buf[0];
+    }
+    return buf[index];
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
