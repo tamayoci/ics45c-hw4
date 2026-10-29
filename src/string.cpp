@@ -75,3 +75,16 @@ int String::strcmp(const char *left, const char *right) {
     return left[i] - right[i];
 }
 
+int String::strncmp(const char *left, const char *right, int n) {
+    int i = 0;
+    while (i < n && left[i] != '\0' && right[i] != '\0') {
+        if (left[i] != right[i]) {
+            return left[i] - right[i];
+        }
+        ++i;
+    }
+    if (i == n) {
+        return 0;
+    }
+    return left[i] - right[i];
+}
