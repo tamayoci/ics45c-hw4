@@ -63,3 +63,15 @@ char *String::strncat(char *dest, const char *src, int n) {
     dest[j] = '\0';
     return dest;
 }
+
+int String::strcmp(const char *left, const char *right) {
+    int i = 0;
+    while (left[i] != '\0' && right[i] != '\0') {
+        if (left[i] != right[i]) {
+            return left[i] - right[i];
+        }
+        ++i;
+    }
+    return left[i] - right[i];
+}
+
