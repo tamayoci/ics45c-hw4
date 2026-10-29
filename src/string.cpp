@@ -76,6 +76,10 @@ int String::indexOf(const String &s) const {
     return ptr - buf;
 }
 
+void String::print(std::ostream &out) const {
+    out << buf;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
@@ -193,3 +197,7 @@ const char *String::strstr(const char *haystack, const char *needle) {
     return nullptr;
 }
 
+std::ostream &operator<<(std::ostream &out, String s) {
+    s.print(out);
+    return out;
+}
