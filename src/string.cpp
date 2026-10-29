@@ -46,6 +46,10 @@ char &String::operator[](int index) {
     return buf[index];
 }
 
+int String::size() const {
+    return strlen(buf);
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
