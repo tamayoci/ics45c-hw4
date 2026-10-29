@@ -1,5 +1,6 @@
 #include "string.hpp"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,6 +9,10 @@ char *String::strdup(const char *src) {
     char *copy = new char[len + 1];
     strcpy(copy, src);
     return copy;
+}
+
+String::String(const char *s) {
+    buf = strdup(s);
 }
 
 int String::strlen(const char *s) {
