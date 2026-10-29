@@ -33,6 +33,11 @@ void String::swap(String &s) {
     std::swap(buf, s.buf);
 }
 
+String &String::operator=(String s) {
+    swap(s);
+    return *this;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
