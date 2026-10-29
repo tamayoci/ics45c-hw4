@@ -56,6 +56,16 @@ String String::reverse() const {
     return result;
 }
 
+int String::indexOf(char c) const {
+    const char *ptr = strchr(buf, c);
+
+    if (ptr == nullptr) {
+        return -1;
+    }
+
+    return ptr - buf;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
