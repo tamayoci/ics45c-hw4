@@ -66,6 +66,16 @@ int String::indexOf(char c) const {
     return ptr - buf;
 }
 
+int String::indexOf(const String &s) const {
+    const char *ptr = strstr(buf, s.buf);
+
+    if (ptr == nullptr) {
+        return -1;
+    }
+
+    return ptr - buf;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
