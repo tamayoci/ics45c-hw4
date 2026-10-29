@@ -80,6 +80,17 @@ void String::print(std::ostream &out) const {
     out << buf;
 }
 
+void String::read(std::istream &in) {
+    char temp[1024];
+    in >> temp;
+    delete[] buf;
+    buf = strdup(temp);
+}
+
+String::~String() {
+    delete[] buf;
+}
+
 int String::strlen(const char *s) {
     int len = 0;
     while (s[len] != '\0') {
@@ -200,4 +211,9 @@ const char *String::strstr(const char *haystack, const char *needle) {
 std::ostream &operator<<(std::ostream &out, String s) {
     s.print(out);
     return out;
+}
+
+std::istream &operator>>(std::istream &in, String &s) {
+    s.read(in);
+    return in;
 }
