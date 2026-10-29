@@ -100,6 +100,24 @@ bool String::operator>=(const String &s) const {
     return strcmp(buf, s.buf) >= 0;
 }
 
+String String::operator+(const String &s) const {
+    int len1 = strlen(buf);
+    int len2 = strlen(s.buf);
+
+    String result(len1 + len2);
+
+    strcpy(result.buf, buf);
+    strcat(result.buf, s.buf);
+
+    return result;
+}
+
+String &String::operator+=(const String &s) {
+    String result = *this + s;
+    swap(result);
+    return *this;
+}
+
 void String::print(std::ostream &out) const {
     out << buf;
 }
