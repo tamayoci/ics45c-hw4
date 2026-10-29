@@ -19,6 +19,19 @@ String::String(const String &s) {
     buf = strdup(s.buf);
 }
 
+String::String(int length) {
+    buf = new char[length + 1];
+    buf[0] = '\0';
+}
+
+String::String(String &&s) {
+    buf = s.buf;
+    s.buf = nullptr;
+}
+
+void String::swap(String &s) {
+    std::swap(buf, s.buf);
+}
 
 int String::strlen(const char *s) {
     int len = 0;
