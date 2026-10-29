@@ -51,3 +51,15 @@ char *String::strcat(char *dest, const char *src) {
     dest[j] = '\0';
     return dest;
 }
+
+char *String::strncat(char *dest, const char *src, int n) {
+    int j = strlen(dest);
+    int i = 0;
+    while (i < n && src[i] != '\0') {
+        dest[j] = src[i];
+        ++i;
+        ++j;
+    }
+    dest[j] = '\0';
+    return dest;
+}
